@@ -15,7 +15,7 @@ class ContactList extends Component {
   }
 
   addContact(e) {
-    var contactArray = this.state.contacts;
+    var contactArray = this.state.contacts.slice();
 
     if(this.name.value !== "") {
       contactArray.unshift({
@@ -39,7 +39,7 @@ class ContactList extends Component {
   }
 
   deleteContact(key) {
-    var filteredContacts = this.state.contacts.filter(function(contact) {
+    var filteredContacts = this.state.contacts.slice().filter(function(contact) {
       return (contact.key !== key);
     });
 
